@@ -1,0 +1,6 @@
+.come {
+  grid-area: come;
+
+  display: flex;
+  align-items: center;
+}
