@@ -1,15 +1,14 @@
-
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://674b8c4971933a4e88558e82.mockapi.io";
+axios.defaults.baseURL = "https://674b8c4971933a4e88558e82.mockapi.io/";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/products");
-      return response.data;
+      return response.data[0];
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

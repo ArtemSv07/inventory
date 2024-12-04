@@ -5,7 +5,7 @@ import {
   // createSelector,
   createSlice,
 } from "@reduxjs/toolkit";
-import { getProducts } from "./productsOps.js";
+import { getProducts } from "./productsOps";
 
 const handlePending = (state) => {
   state.error = null;

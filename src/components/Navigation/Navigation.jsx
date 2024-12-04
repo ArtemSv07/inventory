@@ -10,7 +10,11 @@ const buildLinkClass = ({ isActive }) => {
 const Navigation = ({ handleToggle }) => {
   return (
     <nav className={css.nav}>
-      <NavLink onClick={() => handleToggle()} to="/" className={buildLinkClass}>
+      <NavLink
+        onClick={() => handleToggle()}
+        to="/orders"
+        className={buildLinkClass}
+      >
         ПРИХОД
       </NavLink>
       <NavLink
