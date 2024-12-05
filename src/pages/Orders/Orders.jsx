@@ -1,6 +1,9 @@
 import css from "./Orders.module.css";
 import { orders, products } from "../../date.js";
 import getDate from "../../utils/getDate.js";
+import { FaListUl } from "react-icons/fa6";
+import RightArrow from "../../components/RightArrow/RightArrow.jsx";
+import DeleteButton from "../../components/DeleteButton/DeleteButton.jsx";
 
 import OrderDetails from "../../components/OrderDetails/OrderDetails.jsx";
 // import Popup from "./Popup";
@@ -44,23 +47,27 @@ const Orders = ({ selectedOrder, setSelectedOrder }) => {
                   {order.title}
                 </h3>
               )}
-
+              <button
+                className={css.buttonList}
+                onClick={() => setSelectedOrder(order)}
+              >
+                <FaListUl size={20} color="#5a737f" />
+              </button>
               <p className={css.text}>
-                <span className={css.textSpan}>{count} шт.</span> продукта
+                <span className={css.textSpan}>{count} шт.</span> Продукта
               </p>
-
               <div className={css.textDateContainer}>
                 <p className={css.textDate}>{getDate(order.date)}</p>
                 <p>{getDate(order.date, "fullDate")}</p>
               </div>
-
-              <p>
-                Сума: {totalPrice.UAH} UAH / {totalPrice.USD} USD
-              </p>
-              <button onClick={() => setSelectedOrder(order)}>
-                {selectedOrder?.id === order.id ? "Закрити" : "Відкрити"}
-              </button>
-              {/* <button onClick={() => setPopupOpen(true)}>Видалити</button> */}
+              {!selectedOrder && (
+                <p className={css.textMany}>
+                  <span className={css.textDate}>{totalPrice.USD} $</span>
+                  {totalPrice.UAH} UAH
+                </p>
+              )}
+              {selectedOrder?.id === order.id && <RightArrow />}
+              {!selectedOrder && <DeleteButton />}
             </div>
           );
         })}
