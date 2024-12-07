@@ -1,9 +1,10 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { orders } from "./date";
 
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Come from "./components/Сoming/Come";
+import AddButton from "./components/AddButton/AddButton";
 
 import "./App.css";
 
@@ -15,6 +16,11 @@ const NotFound = lazy(() => import("./components/NotFound/NotFound"));
 function App() {
   const [toggle, isToggle] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [OrdersLength, setOrdersLength] = useState(0);
+
+  useEffect(() => {
+    setOrdersLength(orders.length);
+  }, [OrdersLength]);
 
   const handleToggle = () => {
     isToggle(!toggle);
@@ -26,7 +32,7 @@ function App() {
 
       <Suspense fallback={null}>
         <main className="main">
-          <Come />
+          <AddButton sizeIcon={20} textTitle={`Приходи / ${OrdersLength}`} />
           <Routes>
             <Route
               path="/orders"

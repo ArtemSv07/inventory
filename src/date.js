@@ -24,10 +24,11 @@ export const orders = [
 export const products = [
   {
     id: 1,
-    serialNumber: 1001,
+    serialNumber: "SN-12.444864476",
     isNew: 1,
-    photo: "laptop.jpg",
-    title: "High-Performance Laptop",
+    photo: "./icons/460292406.webp",
+    title:
+      "Lenovo Legion 5 Pro 16IAH7H i7-12700H / 16GB / 512GB / RTX 3070 / 16",
     type: "Laptop",
     specification: "Intel Core i9, 16GB RAM, 1TB SSD",
     guarantee: {
@@ -43,10 +44,10 @@ export const products = [
   },
   {
     id: 2,
-    serialNumber: 1002,
+    serialNumber: "SN-12.444864555",
     isNew: 1,
     photo: "monitor.jpg",
-    title: "4K UHD Monitor",
+    title: "Монітор 32 Gigabyte M32UC UHD VA 144Hz (M32UC-EK)",
     type: "Monitor",
     specification: "27-inch, HDR, 3840x2160",
     guarantee: {
@@ -62,10 +63,11 @@ export const products = [
   },
   {
     id: 3,
-    serialNumber: 1003,
+    serialNumber: "SN-12.444864257",
     isNew: 1,
     photo: "keyboard.jpg",
-    title: "Wireless Keyboard",
+    title:
+      "Клавіатура бездротова Logitech G PRO X TKL Lightspeed White Tactile (920-012148)",
     type: "Keyboard",
     specification: "Wireless, ergonomic design",
     guarantee: {
@@ -81,10 +83,10 @@ export const products = [
   },
   {
     id: 4,
-    serialNumber: 1004,
+    serialNumber: "SN-12.444864168",
     isNew: 1,
     photo: "mouse.jpg",
-    title: "Wireless Mouse",
+    title: "Миша Lenovo Legion M600s Wireless Gaming Mouse Grey (GY51H47354)",
     type: "Mouse",
     specification: "Wireless, optical sensor",
     guarantee: {

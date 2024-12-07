@@ -11,13 +11,11 @@
 }
 
 .main {
-  height: 100vh;
-
   @media screen and (min-width: 1200px) {
-    padding: 0 100px;
     grid-area: main;
     grid-template-rows: 180px 1fr;
     display: grid;
+    justify-content: center;
     grid-template-areas:
       "come"
       "main";

@@ -38,36 +38,42 @@ const Orders = ({ selectedOrder, setSelectedOrder }) => {
           const { count, totalPrice } = calculateOrderData(order.id);
           return (
             <div key={order.id} className={css.orderContainer}>
-              {!selectedOrder && (
-                <h3
-                  className={css.title}
-                  data-full-text={order.title}
-                  tabIndex="0"
+              <div className={css.containerTitle}>
+                {!selectedOrder && (
+                  <h3
+                    className={css.title}
+                    data-full-text={order.title}
+                    tabIndex="0"
+                  >
+                    {order.title}
+                  </h3>
+                )}
+                <button
+                  className={css.buttonList}
+                  onClick={() => setSelectedOrder(order)}
                 >
-                  {order.title}
-                </h3>
-              )}
-              <button
-                className={css.buttonList}
-                onClick={() => setSelectedOrder(order)}
-              >
-                <FaListUl size={20} color="#5a737f" />
-              </button>
-              <p className={css.text}>
-                <span className={css.textSpan}>{count} шт.</span> Продукта
-              </p>
-              <div className={css.textDateContainer}>
-                <p className={css.textDate}>{getDate(order.date)}</p>
-                <p>{getDate(order.date, "fullDate")}</p>
+                  <FaListUl size={30} color="#5a737f" />
+                </button>
               </div>
-              {!selectedOrder && (
-                <p className={css.textMany}>
-                  <span className={css.textDate}>{totalPrice.USD} $</span>
-                  {totalPrice.UAH} UAH
+
+              <div className={css.containerText}>
+                <p className={css.text}>
+                  <span className={css.textSpan}>{count} шт.</span> Продукта
                 </p>
-              )}
-              {selectedOrder?.id === order.id && <RightArrow />}
-              {!selectedOrder && <DeleteButton />}
+                <div className={css.textDateContainer}>
+                  <p className={css.textDate}>{getDate(order.date)}</p>
+                  <p>{getDate(order.date, "fullDate")}</p>
+                </div>
+                {!selectedOrder && (
+                  <p className={css.textMany}>
+                    <span className={css.textDate}>{totalPrice.USD} $</span>
+                    {totalPrice.UAH} UAH
+                  </p>
+                )}
+
+                {selectedOrder?.id === order.id && <RightArrow />}
+                {!selectedOrder && <DeleteButton />}
+              </div>
             </div>
           );
         })}
