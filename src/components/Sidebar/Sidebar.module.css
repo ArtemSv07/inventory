@@ -2,8 +2,12 @@
   grid-area: sidebar;
   background-color: var(--white);
   box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 45px 16px;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
   @media screen and (max-width: 1199px) {
     position: fixed;
     top: 0;

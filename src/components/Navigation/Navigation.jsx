@@ -24,6 +24,22 @@ const Navigation = ({ handleToggle }) => {
       >
         ПРОДУКТЫ
       </NavLink>
+
+      <NavLink
+        onClick={() => handleToggle()}
+        to="/users"
+        className={buildLinkClass}
+      >
+        ПОЛЬЗОВАТЕЛИ
+      </NavLink>
+
+      <NavLink
+        onClick={() => handleToggle()}
+        to="/settings"
+        className={buildLinkClass}
+      >
+        НАСТРОЙКИ
+      </NavLink>
     </nav>
   );
 };

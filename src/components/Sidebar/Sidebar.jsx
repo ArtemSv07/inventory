@@ -3,11 +3,13 @@ import clsx from "clsx";
 import Navigation from "../Navigation/Navigation";
 import PropTypes from "prop-types";
 import ToggleBotton from "../ToggleButton/ToggleBotton";
+import Avatar from "../Avatar/Avatar";
 
 const Sidebar = ({ toggle, handleToggle }) => {
   return (
-    <aside className={toggle ? css.sidebar : clsx(css.isOpen, css.sidebar)}>
+    <aside className={clsx(css.sidebar, toggle && css.isOpen)}>
       <ToggleBotton handleToggle={handleToggle} buttonName="close" />
+      <Avatar />
       <Navigation handleToggle={handleToggle} />
     </aside>
   );

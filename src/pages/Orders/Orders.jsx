@@ -62,7 +62,7 @@ const Orders = ({ selectedOrder, setSelectedOrder }) => {
                 </p>
                 <div className={css.textDateContainer}>
                   <p className={css.textDate}>{getDate(order.date)}</p>
-                  <p>{getDate(order.date, "fullDate")}</p>
+                  <p>{getDate(order.date, "ru")}</p>
                 </div>
                 {!selectedOrder && (
                   <p className={css.textMany}>

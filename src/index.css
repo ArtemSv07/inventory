@@ -7,7 +7,9 @@
   --white: #ffffff;
   --borderColor: #cfd8dc;
   --green: #8bc34a;
+  --darkGreen: #5c8e29;
   --yello: #ccdc38;
+  --transTime: 300ms;
 }
 
 body {

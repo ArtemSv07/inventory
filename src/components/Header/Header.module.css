@@ -16,3 +16,20 @@
     padding-left: 250px;
   }
 }
+
+.unite {
+  display: flex;
+  align-items: center;
+  gap: 190px;
+}
+
+.timeContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.onlineTimeContainer {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}

@@ -32,7 +32,8 @@ function App() {
 
       <Suspense fallback={null}>
         <main className="main">
-          <AddButton sizeIcon={20} textTitle={`Приходи / ${OrdersLength}`} />
+          <AddButton sizeIcon={30} textTitle={`Приходы / ${OrdersLength}`} />
+
           <Routes>
             <Route
               path="/orders"
