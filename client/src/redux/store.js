@@ -13,7 +13,7 @@ import {
 
 // import authSlice from "./auth/slice";
 // import filtersSlice from "./filters/slice";
-import productsSlice from "./productsSlice";
+import inventorySlice from "./inventorySlice";
 
 // const authPersistConfig = {
 //   key: "auth",
@@ -25,7 +25,7 @@ import productsSlice from "./productsSlice";
 
 const store = configureStore({
   reducer: {
-    products: productsSlice,
+    inventory: inventorySlice,
     // auth: authPersistReducer,
     // filter: filtersSlice,
   },

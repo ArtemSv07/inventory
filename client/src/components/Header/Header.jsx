@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import Logo from "../Logo/Logo";
 import SerchInput from "../SerchInput/SerchInput";
-import getDate from "../../utils/getDate";
-import { LuClock8 } from "react-icons/lu";
+import TopMenu from "../TopMenu/TopMenu";
 
 const Header = ({ handleToggle }) => {
   return (
@@ -16,20 +15,7 @@ const Header = ({ handleToggle }) => {
           <Logo />
           <SerchInput />
         </div>
-        <div className={css.timeContainer}>
-          <ul>
-            <li>
-              <p>Today</p>
-            </li>
-            <li>
-              <p>{getDate(undefined, "en")}</p>
-            </li>
-          </ul>
-          <div className={css.onlineTimeContainer}>
-            <LuClock8 color="#5c8e29" />
-            <div>{`${new Date().getHours()} : ${new Date().getMinutes()}`}</div>
-          </div>
-        </div>
+        <TopMenu />
       </div>
     </header>
   );

@@ -1,0 +1,11 @@
+.timeContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.onlineTimeContainer {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

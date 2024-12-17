@@ -77,3 +77,7 @@
 .deleteButton {
   margin-left: auto;
 }
+
+.titleDetails {
+  max-width: 380px;
+}

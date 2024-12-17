@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 import css from "./OrderDetails.module.css";
-import { IoCloseOutline } from "react-icons/io5";
+
 import AddButton from "../AddButton/AddButton";
 import leptop from "../../icons/leptop.webp";
 import DeleteButton from "../DeleteButton/DeleteButton";
+import CloseButton from "../CloseButton/CloseButton";
 
 const OrderDetails = ({ closeDetails, order, products }) => {
   return (
     <div className={css.container}>
-      <button className={css.button} onClick={closeDetails}>
-        <IoCloseOutline size={20} />
-      </button>
+      <CloseButton setOpen={closeDetails} />
       <div className={css.titleContainer}>
         <h2 className={css.title} data-full-text={order.title} tabIndex="0">
           {order.title}
@@ -30,7 +29,7 @@ const OrderDetails = ({ closeDetails, order, products }) => {
             />
             <ul>
               <li>
-                <p>{product.title}</p>
+                <p className={css.titleDetails}>{product.title}</p>
                 <p> {product.serialNumber}</p>
               </li>
             </ul>

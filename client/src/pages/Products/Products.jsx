@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { products } from "../../date";
+import css from "./Products.module.css";
+import img from "../../icons/leptop.webp";
 
 const Products = () => {
   const [filter, setFilter] = useState("");
@@ -21,15 +23,19 @@ const Products = () => {
       </select>
       <div>
         {filteredProducts.map((product) => (
-          <div key={product.id}>
-            <h3>{product.title}</h3>
+          <div className={css.container} key={product.id}>
+            <div className={css.titleContainer}>
+              <img width={50} src={img} alt={product.type} />
+              <h3>{product.title}</h3>
+            </div>
+
             <p>Тип: {product.type}</p>
             <p>
-              Гарантія: {new Date(product.guarantee.start).toLocaleDateString()}{" "}
+              Гарантия: {new Date(product.guarantee.start).toLocaleDateString()}{" "}
               - {new Date(product.guarantee.end).toLocaleDateString()}
             </p>
             <p>
-              Ціна: {product.price.find((p) => p.isDefault).value}{" "}
+              Цена: {product.price.find((p) => p.isDefault).value}{" "}
               {product.price.find((p) => p.isDefault).symbol}
             </p>
           </div>

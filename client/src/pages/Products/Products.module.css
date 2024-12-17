@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid var(--borderColor);
+  border-radius: 10px;
+  padding-top: 10px;
+  height: max-content;
+  background-color: var(--white);
+  padding: 15px;
+  @media screen and (min-width: 1440px) {
+    width: 600px;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}

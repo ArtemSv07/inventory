@@ -1,6 +1,9 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { orders } from "./date";
+
+import { useSelector, useDispatch } from "react-redux";
+import { selectOrders } from "./redux/inventorySlice";
+import { getProducts } from "./redux/productsOps";
 
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -17,10 +20,14 @@ function App() {
   const [toggle, isToggle] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [OrdersLength, setOrdersLength] = useState(0);
+  const dispatch = useDispatch();
+
+  const order = useSelector(selectOrders);
 
   useEffect(() => {
-    setOrdersLength(orders.length);
-  }, [OrdersLength]);
+    dispatch(getProducts());
+    setOrdersLength(order.length);
+  }, [dispatch, order.length]);
 
   const handleToggle = () => {
     isToggle(!toggle);

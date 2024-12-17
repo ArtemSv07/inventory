@@ -1,0 +1,49 @@
+.container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+.popupGrup {
+  position: relative;
+  margin: auto;
+  max-width: 550px;
+  background-color: var(--grayLight);
+}
+
+.popup {
+  background-color: var(--white);
+  padding: 20px;
+}
+
+.buttonList {
+  background-color: var(--darkGreen);
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.deleteButton {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px 30px;
+  border: none;
+  color: red;
+  cursor: pointer;
+}

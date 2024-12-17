@@ -1,18 +1,24 @@
 import css from "./Orders.module.css";
-import { orders, products } from "../../date.js";
+// import { orders, products } from "../../date.js";
 import getDate from "../../utils/getDate.js";
 import { FaListUl } from "react-icons/fa6";
 import RightArrow from "../../components/RightArrow/RightArrow.jsx";
 import DeleteButton from "../../components/DeleteButton/DeleteButton.jsx";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectOrders, selectProducts } from "../../redux/inventorySlice.js";
 
 import OrderDetails from "../../components/OrderDetails/OrderDetails.jsx";
-// import Popup from "./Popup";
+import Popup from "../../components/Popup/Poput.jsx";
 import PropTypes from "prop-types";
 
 const Orders = ({ selectedOrder, setSelectedOrder }) => {
-  // const [isPopupOpen, setPopupOpen] = useState(false); // Для попапу
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [orderId, setOrderId] = useState(null);
 
-  // Розрахунок кількості продуктів та суми для кожного приходу
+  const orders = useSelector(selectOrders);
+  const products = useSelector(selectProducts);
+
   const calculateOrderData = (orderId) => {
     const orderProducts = products.filter(
       (product) => product.order === orderId
@@ -72,7 +78,13 @@ const Orders = ({ selectedOrder, setSelectedOrder }) => {
                 )}
 
                 {selectedOrder?.id === order.id && <RightArrow />}
-                {!selectedOrder && <DeleteButton />}
+                {!selectedOrder && (
+                  <DeleteButton
+                    orderId={order.id}
+                    setOrderId={setOrderId}
+                    setPopupOpen={setPopupOpen}
+                  />
+                )}
               </div>
             </div>
           );
@@ -87,7 +99,7 @@ const Orders = ({ selectedOrder, setSelectedOrder }) => {
           closeDetails={() => setSelectedOrder(null)}
         />
       )}
-      {/* {isPopupOpen && <Popup onClose={() => setPopupOpen(false)} />} */}
+      {isPopupOpen && <Popup orderId={orderId} setPopupOpen={setPopupOpen} />}
     </div>
   );
 };

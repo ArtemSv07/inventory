@@ -17,10 +17,11 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const productsSlice = createSlice({
-  name: "products",
+const inventorySlice = createSlice({
+  name: "inventory",
   initialState: {
-    items: [],
+    orders: [],
+    products: [],
     loading: false,
     error: null,
   },
@@ -29,7 +30,10 @@ const productsSlice = createSlice({
     builder
       .addCase(getProducts.pending, handlePending)
       .addCase(getProducts.fulfilled, (state, action) => {
-        (state.loading = false), (state.items = action.payload);
+        (state.loading = false),
+          (state.orders = action.payload.orders),
+          (state.products = action.payload.products);
+        console.log(state.products);
       })
       .addCase(getProducts.rejected, handleRejected);
 
@@ -65,9 +69,9 @@ const productsSlice = createSlice({
   },
 });
 
-export default productsSlice.reducer;
-export const selectItems = (state) => state.products.items;
-
+export default inventorySlice.reducer;
+export const selectOrders = (state) => state.inventory.orders;
+export const selectProducts = (state) => state.inventory.products;
 // export const selectFiltered = createSelector(
 //   [selectItems, selectContactFilter],
 //   (contacts, filter) => {
